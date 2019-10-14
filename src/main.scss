@@ -1,0 +1,54 @@
+/* Reset */
+/*! minireset.css v0.0.5 | MIT License | github.com/jgthms/minireset.css */html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}
+
+html {
+	font-size: 16px;
+}
+body {
+	font-size: 1em;
+}
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/**
+ * Helpers
+ */
+@function colWidthCalc($col, $gap) {
+	@return calc((100% - #{$gap}*#{$col})/#{$col});
+}
+
+
+/**
+ * Box
+ */
+.box-wrapper {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+$gap: 1em;
+.box {
+	margin: $gap/2;
+	border: solid 1px black;
+	min-height: 100px;
+	width: colWidthCalc(1, $gap);
+	
+	@media screen and (min-width: (768/16)+em) {
+		width: colWidthCalc(2, $gap);
+	}
+	@media screen and (min-width: (1024/16)+em) {
+		width: colWidthCalc(4, $gap);
+	}
+
+	&--vege {
+		background-color: #285428;
+	}
+
+	&--royal {
+		background-color: #282f54;
+	}
+}
